@@ -1,4 +1,5 @@
 {
+  "floatty.nvim": { "branch": "main", "commit": "e82ae3bbe46b8e28918bcf7b9f3d5c36304e0c9f" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "nord.nvim": { "branch": "main", "commit": "07647ad23e5b7fc1599a841dcd8f173b9aeb0419" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "607a438d8c647a355749973fd295e33505afafde" }
