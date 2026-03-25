@@ -35,10 +35,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end
 })
 
-servers = require("user.servers")
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local capabilities = nil
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lspconfig = require("lspconfig")
 
+
+local servers = require("user.servers")
 for _, server in ipairs(servers) do
   vim.lsp.enable(server, true)
+  lspconfig[server].setup({ capabilities = capabilities })
 end
+
