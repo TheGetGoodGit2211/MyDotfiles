@@ -30,6 +30,6 @@ local colorscheme = "nord"
 vim.cmd("colorscheme " .. colorscheme)
 
 
-vim.keymap.set("n", "<leader>lz", ":Lazy<CR>")
-vim.keymap.set("n", "<leader>lc", ":Lazy clean<CR>")
-vim.keymap.set("n", "<leader>lla", ":Lazy load all<CR>")
+vim.keymap.set("n", "<leader>lo", ":Lazy<CR>")           -- [L]azy [O]pen
+vim.keymap.set("n", "<leader>lc", ":Lazy clean<CR>")     -- [L]azy [C]lean
+vim.keymap.set("n", "<leader>lla", ":Lazy load all<CR>") -- [L]azy [L]oad  [A]ll
