@@ -23,6 +23,12 @@ function install-dev-tools -d "Installs useful development utilities"
         sudo pacman -S git $PAC_FLAG
     end
 
+    if not command -q cargo
+        echo "[dotfiles] cargo not found, bootstrapping rustup..."
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- $RUSTUP_FLAG
+        fish_add_path -U "$HOME/.cargo/bin" "$HOME/.local/bin"
+    end
+
     if not command -q paru
         sudo pacman -S --needed base-devel $PAC_FLAG
         git clone https://aur.archlinux.org/paru.git
@@ -35,12 +41,6 @@ function install-dev-tools -d "Installs useful development utilities"
     if not command -q nvim
         echo "[dotfiles] neovim not found, bootstrapping neovim..."
         paru -S neovim-nightly-bin $PAC_FLAG
-    end
-
-    if not command -q cargo
-        echo "[dotfiles] cargo not found, bootstrapping rustup..."
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- $RUSTUP_FLAG
-        fish_add_path -U "$HOME/.cargo/bin" "$HOME/.local/bin"
     end
 
     if not command -q fnm
