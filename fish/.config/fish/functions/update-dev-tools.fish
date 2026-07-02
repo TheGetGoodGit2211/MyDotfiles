@@ -1,25 +1,28 @@
-function update-dev-tools
-    echo "🔄 Updating Rust toolchain..."
+function update-dev-tools -d "Updates user-space development utilities"
     if command -q rustup
         rustup update
     else
-        echo "⚠️ rustup not found, skipping."
+        echo "[dotfiles] rustup has been updated"
     end
 
-    echo "🔄 Updating uv..."
+    if command -q fnm
+        cargo install fnm
+        fnm install --lts
+    else
+        echo "[dotfiles] fnm has been updated"
+    end
+
     if command -q uv
         cargo install uv
     else
-        echo "⚠️ uv not found, skipping."
+        echo "[dotfiles] uv has been updated"
     end
 
-    echo "🔄 Updating zoxide..."
     if command -q zoxide
-        # Re-running the install script is the official way to update the curl install
         curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
     else
-        echo "⚠️ zoxide not found, skipping."
+        echo "[dotfiles] zoxide has been updated"
     end
 
-    echo "✨ All dev tools updated!"
+    echo ""
 end
