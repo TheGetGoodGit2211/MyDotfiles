@@ -10,6 +10,11 @@ function install-dev-tools -d "Installs useful development utilities"
     set -l PAC_FLAG
     set -l RUSTUP_FLAG
 
+    if test "$SHELL" != /usr/bin/fish
+        echo "[dotfiles] Changing default shell to fish..."
+        sudo usermod --shell /usr/bin/fish $USER
+    end
+
     if string match -qr '^[Yy]' $interactive_choice
         echo "[dotfiles] running script interactively..."
     else
