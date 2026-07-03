@@ -1,13 +1,17 @@
 #!/bin/bash
 set -e
 
-# --- 1. Python 3 Check ---
-if ! command -v python3 &> /dev/null; then
-    echo "[dotfiles] Python 3 not found. Installing via pacman..."
-    sudo pacman -S --needed --noconfirm python
-else
-    echo "[dotfiles] Python 3 is already installed."
-fi
+# --- 1. System Dependencies (Pacman handles the checks natively) ---
+echo "[dotfiles] Ensuring system dependencies are installed..."
+sudo pacman -S --needed --noconfirm \
+    base-devel \
+    tree-sitter-cli \
+    ripgrep \
+    fd \
+    unzip \
+    git \
+    curl \
+    python
 
 # --- 2. Node.js / NVM Check ---
 if command -v node &> /dev/null; then
@@ -39,3 +43,5 @@ export NVM_DIR="$HOME/.nvm"
 EOF
     fi
 fi
+
+echo "[dotfiles] All Neovim environment prerequisites are met!"
