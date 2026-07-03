@@ -76,6 +76,7 @@ function install-dev-tools -d "Installs useful development utilities"
     if not command -q zoxide
         echo "[dotfiles] zoxide not found, bootstrapping zoxide..."
         curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+        sudo pacman -S fzf $PAC_FLAG
         zoxide init fish --cmd cd | source
     end
 end
