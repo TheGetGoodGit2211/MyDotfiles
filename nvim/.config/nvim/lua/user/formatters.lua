@@ -1,4 +1,5 @@
 return {
 	"stylua",
 	"black",
+	"beautysh",
 }

@@ -1,4 +1,5 @@
 return {
+	"bashls",
 	"serve_d",
 	"lua_ls",
 	"clangd",
